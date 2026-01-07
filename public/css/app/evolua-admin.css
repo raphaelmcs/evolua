@@ -1,0 +1,126 @@
+:root {
+    --evolua-surface: #ffffff;
+    --evolua-border: rgba(148, 163, 184, 0.25);
+    --evolua-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+    --evolua-muted: #64748b;
+    --evolua-input: #f8fafc;
+    --evolua-accent: #10b981;
+    --evolua-text: #0f172a;
+    --evolua-text-muted: #94a3b8;
+}
+
+.fi-body {
+    font-family: "Space Grotesk", sans-serif;
+    background:
+        radial-gradient(900px 450px at 10% -10%, #ecfeff 0%, transparent 60%),
+        radial-gradient(800px 420px at 90% -20%, #fef3c7 0%, transparent 55%),
+        #f8fafc;
+}
+
+.dark:root,
+.dark {
+    --evolua-surface: #0f172a;
+    --evolua-border: rgba(148, 163, 184, 0.2);
+    --evolua-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+    --evolua-muted: #94a3b8;
+    --evolua-input: #111827;
+    --evolua-accent: #34d399;
+    --evolua-text: #e2e8f0;
+    --evolua-text-muted: #94a3b8;
+}
+
+.dark .fi-body {
+    background:
+        radial-gradient(900px 450px at 10% -10%, rgba(14, 116, 144, 0.25) 0%, transparent 60%),
+        radial-gradient(800px 420px at 90% -20%, rgba(120, 53, 15, 0.3) 0%, transparent 55%),
+        #0b1020;
+}
+
+.fi-main,
+.fi-topbar,
+.fi-sidebar {
+    background: transparent;
+}
+
+.fi-page-header-heading {
+    letter-spacing: -0.02em;
+}
+
+.fi-section {
+    border-radius: 18px;
+    border: 1px solid var(--evolua-border);
+    background: var(--evolua-surface);
+    box-shadow: var(--evolua-shadow);
+}
+
+.fi-section-header-heading {
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+}
+
+.fi-section-header-description {
+    color: var(--evolua-muted);
+}
+
+.fi-fo-repeater-item {
+    border-radius: 16px;
+    border: 1px solid var(--evolua-border);
+    box-shadow: none;
+}
+
+.fi-input,
+.fi-select,
+.fi-ta-textarea,
+.fi-fo-textarea textarea,
+.fi-fo-text-input input,
+.fi-fo-select select {
+    border-radius: 12px;
+    border: 1px solid var(--evolua-border);
+    background: var(--evolua-input);
+    color: var(--evolua-text);
+}
+
+.fi-input:focus,
+.fi-select:focus,
+.fi-ta-textarea:focus,
+.fi-fo-textarea textarea:focus,
+.fi-fo-text-input input:focus,
+.fi-fo-select select:focus {
+    border-color: var(--evolua-accent);
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+}
+
+.fi-fo-text-input input::placeholder,
+.fi-input::placeholder,
+.fi-fo-textarea textarea::placeholder {
+    color: var(--evolua-text-muted);
+}
+
+.fi-btn {
+    border-radius: 999px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.fi-sidebar-nav {
+    gap: 6px;
+}
+
+.fi-sidebar-item a {
+    border-radius: 12px;
+}
+
+.fi-sidebar-item a[aria-current="page"] {
+    background: rgba(16, 185, 129, 0.14);
+}
+
+@media (max-width: 640px) {
+    .fi-section {
+        border-radius: 14px;
+        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+    }
+
+    .fi-fo-repeater-item {
+        border-radius: 12px;
+    }
+}
