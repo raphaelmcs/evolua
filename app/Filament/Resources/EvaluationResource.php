@@ -10,10 +10,13 @@ use App\Models\EvaluationTemplateItem;
 use App\Models\Report;
 use Filament\Forms\Get;
 use Filament\Forms\Set;
-use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms;
+use Filament\Forms\Components\Wizard;
+use Filament\Forms\Components\Wizard\Step;
 use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
+use Filament\Support\Enums\IconPosition;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -77,8 +80,11 @@ class EvaluationResource extends Resource
                             ->columnSpanFull(),
                     ])
                     ->columns(2),
-                Forms\Components\Group::make()
-                    ->schema(static::scoreSections()),
+                Forms\Components\Section::make('Notas por dominio')
+                    ->schema([
+                        static::scoreWizard(),
+                    ])
+                    ->hidden(fn (Get $get) => ! $get('template_id')),
             ]);
     }
 
@@ -284,14 +290,22 @@ class EvaluationResource extends Resource
         ]);
     }
 
-    protected static function scoreSections(): array
+    protected static function scoreWizard(): Wizard
     {
-        return collect(EvaluationTemplateItem::DOMAINS)
+        $steps = collect(EvaluationTemplateItem::DOMAINS)
             ->map(function (string $label, string $domain) {
-                return Forms\Components\Section::make($label)
+                return Step::make($label)
+                    ->icon(match ($domain) {
+                        'tecnico' => 'heroicon-o-bolt',
+                        'fisico' => 'heroicon-o-fire',
+                        'tatico' => 'heroicon-o-map',
+                        'mental' => 'heroicon-o-light-bulb',
+                        default => 'heroicon-o-check',
+                    })
                     ->schema([
                         Forms\Components\Repeater::make("scores_{$domain}")
                             ->label('')
+                            ->extraAttributes(['class' => 'evolua-score-repeater'])
                             ->schema([
                                 Forms\Components\Hidden::make('template_item_id'),
                                 Forms\Components\TextInput::make('label')
@@ -301,6 +315,8 @@ class EvaluationResource extends Resource
                                 Forms\Components\TextInput::make('score')
                                     ->label('Nota')
                                     ->numeric()
+                                    ->minValue(fn (Get $get) => (float) $get('scale_min'))
+                                    ->maxValue(fn (Get $get) => (float) $get('scale_max'))
                                     ->required(),
                                 Forms\Components\Textarea::make('comment')
                                     ->label('Observacao')
@@ -311,11 +327,25 @@ class EvaluationResource extends Resource
                             ->deletable(false)
                             ->addable(false)
                             ->reorderable(false),
-                    ])
-                    ->hidden(fn (Get $get) => ! $get('template_id'));
+                    ]);
             })
             ->values()
             ->all();
+
+        return Wizard::make($steps)
+            ->columnSpanFull()
+            ->nextAction(function ($action) {
+                return $action
+                    ->label('Proximo')
+                    ->icon('heroicon-m-arrow-right')
+                    ->iconPosition(IconPosition::After);
+            })
+            ->previousAction(function ($action) {
+                return $action
+                    ->label('Voltar')
+                    ->icon('heroicon-m-arrow-left')
+                    ->iconPosition(IconPosition::Before);
+            });
     }
 
     public static function getPages(): array

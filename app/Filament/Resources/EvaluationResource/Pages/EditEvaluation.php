@@ -15,6 +15,20 @@ class EditEvaluation extends EditRecord
 {
     protected static string $resource = EvaluationResource::class;
 
+    protected static string $view = 'filament.resources.evaluation-resource.pages.edit-evaluation';
+
+    public function getHeading(): string
+    {
+        return '';
+    }
+
+    public function getExtraBodyAttributes(): array
+    {
+        return [
+            'class' => 'evolua-evaluations-form-bg',
+        ];
+    }
+
     protected function mutateFormDataBeforeFill(array $data): array
     {
         return array_merge($data, EvaluationResource::scoresFromEvaluation($this->record));

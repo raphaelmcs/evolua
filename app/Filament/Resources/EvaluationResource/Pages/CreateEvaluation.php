@@ -15,6 +15,20 @@ class CreateEvaluation extends CreateRecord
 {
     protected static string $resource = EvaluationResource::class;
 
+    protected static string $view = 'filament.resources.evaluation-resource.pages.create-evaluation';
+
+    public function getHeading(): string
+    {
+        return '';
+    }
+
+    public function getExtraBodyAttributes(): array
+    {
+        return [
+            'class' => 'evolua-evaluations-form-bg',
+        ];
+    }
+
     protected function handleRecordCreation(array $data): Model
     {
         $scores = $this->extractScores($data);

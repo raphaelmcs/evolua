@@ -12,6 +12,20 @@ class EditAthlete extends EditRecord
 {
     protected static string $resource = AthleteResource::class;
 
+    protected static string $view = 'filament.resources.athlete-resource.pages.edit-athlete';
+
+    public function getHeading(): string
+    {
+        return '';
+    }
+
+    public function getExtraBodyAttributes(): array
+    {
+        return [
+            'class' => 'evolua-athletes-form-bg',
+        ];
+    }
+
     protected function beforeSave(): void
     {
         $record = $this->record;

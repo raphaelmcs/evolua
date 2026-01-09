@@ -10,10 +10,25 @@ class ListEvaluations extends ListRecords
 {
     protected static string $resource = EvaluationResource::class;
 
+    protected static string $view = 'filament.resources.evaluation-resource.pages.list-evaluations';
+
+    public function getHeading(): string
+    {
+        return '';
+    }
+
+    public function getExtraBodyAttributes(): array
+    {
+        return [
+            'class' => 'evolua-evaluations-bg',
+        ];
+    }
+
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()
+                ->label('Nova avaliacao'),
         ];
     }
 }

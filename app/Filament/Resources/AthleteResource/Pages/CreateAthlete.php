@@ -12,6 +12,20 @@ class CreateAthlete extends CreateRecord
 {
     protected static string $resource = AthleteResource::class;
 
+    protected static string $view = 'filament.resources.athlete-resource.pages.create-athlete';
+
+    public function getHeading(): string
+    {
+        return '';
+    }
+
+    public function getExtraBodyAttributes(): array
+    {
+        return [
+            'class' => 'evolua-athletes-form-bg',
+        ];
+    }
+
     protected function beforeCreate(): void
     {
         if (! Gate::allows('create', Athlete::class)) {

@@ -11,6 +11,11 @@ class Dashboard extends BaseDashboard
 {
     protected static string $view = 'filament.pages.dashboard';
 
+    public function getHeading(): string
+    {
+        return '';
+    }
+
     protected function getViewData(): array
     {
         $organizationId = auth()->user()?->organization_id;

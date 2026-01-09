@@ -464,6 +464,401 @@ html, body {
     min-width: 0;
 }
 
+.evolua-resource-page {
+    animation: evolua-fade-up 0.35s ease;
+}
+
+.evolua-resource-hero {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-bottom: 24px;
+    align-items: center;
+}
+
+.evolua-resource-hero--flat {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+}
+
+.evolua-resource-hero-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-self: start;
+}
+
+.evolua-resource-hero-actions .fi-btn {
+    border-radius: 999px;
+    padding: 10px 18px;
+    font-weight: 600;
+}
+
+.evolua-resource-hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.evolua-resource-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--evolua-text);
+}
+
+.evolua-resource-subtitle {
+    margin: 0;
+    color: var(--evolua-muted);
+}
+
+.evolua-resource-actions {
+    margin-top: 6px;
+}
+
+.evolua-resource-hero-media {
+    min-height: 180px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(59, 130, 246, 0.18));
+    background-size: cover;
+    background-position: center;
+    border: 1px solid var(--evolua-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.evolua-resource-hero-overlay {
+    position: absolute;
+    inset: auto 16px 16px 16px;
+    background: rgba(255, 255, 255, 0.88);
+    border-radius: 14px;
+    padding: 10px 12px;
+    font-size: 0.85rem;
+    color: var(--evolua-muted);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.evolua-resource-hero-overlay strong {
+    color: var(--evolua-text);
+    font-weight: 600;
+}
+
+.evolua-resource-card {
+    background: var(--evolua-surface);
+    border: 1px solid var(--evolua-border);
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: var(--evolua-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.evolua-resource-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
+}
+
+.evolua-form-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.8fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.evolua-form-card {
+    background: var(--evolua-surface);
+    border: 1px solid var(--evolua-border);
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: var(--evolua-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.evolua-form-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
+}
+
+.evolua-form-aside {
+    background: linear-gradient(160deg, rgba(14, 165, 233, 0.1), rgba(16, 185, 129, 0.08));
+    border: 1px solid var(--evolua-border);
+    border-radius: 18px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    color: var(--evolua-muted);
+}
+
+.evolua-form-aside h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--evolua-text);
+}
+
+.evolua-form-aside-card {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 14px;
+    padding: 12px;
+    font-size: 0.85rem;
+    color: var(--evolua-muted);
+}
+
+.evolua-form-aside-card strong {
+    color: var(--evolua-text);
+    display: block;
+    margin-top: 4px;
+}
+
+.evolua-athletes-bg {
+    background:
+        radial-gradient(900px 480px at 10% 10%, rgba(255, 255, 255, 0.6), transparent 60%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.65) 50%, rgba(248, 250, 252, 0.45) 100%),
+        url('/images/athletes-list.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.evolua-athletes-bg .fi-topbar nav,
+.evolua-athletes-bg .fi-sidebar,
+.evolua-athletes-bg .fi-sidebar-header {
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(12px);
+}
+
+.evolua-athletes-bg .fi-main,
+.evolua-athletes-bg .fi-main-ctn,
+.evolua-athletes-bg .fi-page {
+    background: transparent;
+}
+
+.evolua-athletes-bg .evolua-resource-card {
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(14px);
+}
+
+.evolua-athletes-bg .fi-section {
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(12px);
+}
+
+.evolua-athletes-form-bg {
+    background:
+        radial-gradient(900px 480px at 12% 12%, rgba(255, 255, 255, 0.6), transparent 60%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(248, 250, 252, 0.65) 55%, rgba(248, 250, 252, 0.45) 100%),
+        url('/images/athlete-form.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.evolua-athletes-form-bg .fi-topbar nav,
+.evolua-athletes-form-bg .fi-sidebar,
+.evolua-athletes-form-bg .fi-sidebar-header {
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(12px);
+}
+
+.evolua-athletes-form-bg .fi-main,
+.evolua-athletes-form-bg .fi-main-ctn,
+.evolua-athletes-form-bg .fi-page {
+    background: transparent;
+}
+
+.evolua-athletes-form-bg .evolua-form-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(14px);
+}
+
+.evolua-athletes-form-bg .evolua-form-aside {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+}
+
+.evolua-athletes-form-bg .fi-section {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+}
+
+.evolua-evaluations-bg {
+    background:
+        radial-gradient(900px 480px at 10% 10%, rgba(255, 255, 255, 0.6), transparent 60%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.65) 50%, rgba(248, 250, 252, 0.45) 100%),
+        url('/images/evaluations-list.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.evolua-evaluations-bg .fi-topbar nav,
+.evolua-evaluations-bg .fi-sidebar,
+.evolua-evaluations-bg .fi-sidebar-header {
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(12px);
+}
+
+.evolua-evaluations-bg .fi-main,
+.evolua-evaluations-bg .fi-main-ctn,
+.evolua-evaluations-bg .fi-page {
+    background: transparent;
+}
+
+.evolua-evaluations-bg .evolua-resource-card {
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(14px);
+}
+
+.evolua-evaluations-bg .fi-section {
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(12px);
+}
+
+.evolua-evaluations-form-bg {
+    background:
+        radial-gradient(900px 480px at 12% 12%, rgba(255, 255, 255, 0.6), transparent 60%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(248, 250, 252, 0.65) 55%, rgba(248, 250, 252, 0.45) 100%),
+        url('/images/evaluation-form.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.evolua-evaluations-form-bg .fi-topbar nav,
+.evolua-evaluations-form-bg .fi-sidebar,
+.evolua-evaluations-form-bg .fi-sidebar-header {
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(12px);
+}
+
+.evolua-evaluations-form-bg .fi-main,
+.evolua-evaluations-form-bg .fi-main-ctn,
+.evolua-evaluations-form-bg .fi-page {
+    background: transparent;
+}
+
+.evolua-evaluations-form-bg .evolua-form-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(14px);
+}
+
+.evolua-evaluations-form-bg .evolua-form-aside {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+}
+
+.evolua-evaluations-form-bg .fi-section {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+}
+
+.evolua-score-repeater > ul > .fi-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+}
+
+.evolua-score-repeater > ul > .fi-grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.evolua-score-repeater > ul > .fi-grid::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.6);
+    border-radius: 999px;
+}
+
+.evolua-score-repeater > ul > .fi-grid::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.evolua-score-repeater .fi-fo-repeater-item {
+    min-width: 320px;
+    scroll-snap-align: start;
+}
+
+.evolua-score-nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.evolua-score-nav-btn {
+    border: 1px solid var(--evolua-border);
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--evolua-text);
+    border-radius: 999px;
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.evolua-score-nav-btn:hover {
+    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 1);
+}
+
+.fi-sidebar-item-button {
+    transition: background-color 0.72s ease, transform 0.72s ease, color 0.72s ease;
+}
+
+.fi-sidebar-item-button:hover {
+    transform: translateX(2px);
+}
+
+.fi-sidebar-item.fi-active .fi-sidebar-item-button {
+    background: rgba(16, 185, 129, 0.12);
+}
+
+@keyframes evolua-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fi-page {
+    animation: evolua-page-in 0.72s ease;
+}
+
+.evolua-navigating .fi-page {
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.72s ease, transform 0.72s ease;
+}
+
+@keyframes evolua-page-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fi-page {
+        animation: none;
+    }
+
+    .evolua-navigating .fi-page {
+        transition: none;
+    }
+}
+
 @media (max-width: 1024px) {
     .evolua-login-card {
         grid-template-columns: 1fr;
@@ -480,6 +875,15 @@ html, body {
 
     .evolua-topbar-center {
         display: none;
+    }
+
+    .evolua-form-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .evolua-resource-hero--flat {
+        grid-template-columns: 1fr;
+        justify-items: start;
     }
 }
 
