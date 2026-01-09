@@ -17,6 +17,50 @@
         #f8fafc;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.fi-body {
+    margin: 0;
+}
+
+.fi-simple-layout {
+    background: transparent;
+    min-height: 100vh;
+    align-items: stretch;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100%;
+    height: 100vh;
+}
+
+.fi-simple-main-ctn {
+    padding: 0;
+    width: 100%;
+    justify-content: stretch;
+    align-items: stretch;
+    margin: 0 !important;
+    flex: 1 1 auto;
+    height: 100vh;
+}
+
+.fi-simple-main {
+    max-width: none !important;
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    border: 0;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    flex: 1 1 auto;
+}
+
 .dark:root,
 .dark {
     --evolua-surface: #0f172a;
@@ -78,6 +122,8 @@
     border: 1px solid var(--evolua-border);
     background: var(--evolua-input);
     color: var(--evolua-text);
+    padding: 4px 9px;
+    min-height: 28px;
 }
 
 .fi-input:focus,
@@ -122,5 +168,327 @@
 
     .fi-fo-repeater-item {
         border-radius: 12px;
+    }
+}
+
+.evolua-login {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+    margin: 0;
+    position: fixed;
+    inset: 0;
+    overflow: auto;
+}
+
+.evolua-login-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+    background: var(--evolua-surface);
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: none;
+    border: 0;
+}
+
+.evolua-login-media {
+    position: relative;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.evolua-login-ribbon {
+    position: absolute;
+    bottom: -120px;
+    left: -120px;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle at center, rgba(16, 185, 129, 0.25), rgba(14, 165, 233, 0.4), transparent 70%);
+    border-radius: 50%;
+    filter: blur(0.5px);
+}
+
+.evolua-login-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: clamp(16px, 3vw, 40px);
+    background: #ffffff;
+    justify-content: center;
+    padding-top: clamp(16px, 3vw, 40px);
+    align-items: center;
+}
+
+.evolua-login-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.evolua-login-logo {
+    max-width: 300px;
+    height: auto;
+}
+
+.evolua-login-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e293b;
+    text-align: center;
+}
+
+.evolua-login-subtitle {
+    margin: 0 0 8px 0;
+    color: var(--evolua-muted);
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.evolua-login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.evolua-field-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.evolua-alert {
+    width: 100%;
+    border-radius: 12px;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.evolua-alert--success {
+    background: rgba(34, 197, 94, 0.1);
+    color: #15803d;
+}
+
+.evolua-alert--error {
+    background: rgba(239, 68, 68, 0.12);
+    color: #b91c1c;
+}
+
+.evolua-login-panel .fi-panel,
+.evolua-login-panel form,
+.evolua-login-panel .fi-fo-form,
+.evolua-login-panel .fi-input,
+.evolua-login-panel .fi-select,
+.evolua-login-panel .fi-ta-textarea {
+    width: 100%;
+}
+
+.evolua-login-links {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -6px;
+}
+
+.evolua-login-footer {
+    margin-top: 16px;
+    font-size: 0.95rem;
+    color: var(--evolua-muted);
+    text-align: center;
+}
+
+.evolua-link {
+    color: #2563eb;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.evolua-link:hover {
+    text-decoration: underline;
+}
+
+.evolua-login .fi-btn {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: #ffffff;
+}
+
+.evolua-login .fi-btn:hover {
+    filter: brightness(1.03);
+}
+
+.evolua-topbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+}
+
+.evolua-topbar-logo {
+    height: 34px;
+    width: auto;
+}
+
+.evolua-org-logo-link {
+    display: flex;
+    align-items: center;
+    margin-left: 4px;
+}
+
+.evolua-org-logo {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 1px solid var(--evolua-border);
+    background: #ffffff;
+}
+
+.evolua-org-logo-placeholder {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--evolua-muted);
+    border: 1px dashed var(--evolua-border);
+    border-radius: 999px;
+    padding: 6px 10px;
+    margin-left: 4px;
+    text-decoration: none;
+}
+
+.evolua-dashboard {
+    padding-top: 8px;
+}
+
+.evolua-dashboard-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.evolua-dashboard-kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.7rem;
+    color: var(--evolua-muted);
+    font-weight: 600;
+    margin: 0 0 6px 0;
+}
+
+.evolua-dashboard-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--evolua-text);
+}
+
+.evolua-dashboard-subtitle {
+    margin: 6px 0 0 0;
+    color: var(--evolua-muted);
+}
+
+.evolua-dashboard-highlight {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(59, 130, 246, 0.12));
+    border: 1px solid var(--evolua-border);
+    border-radius: 18px;
+    padding: 14px 18px;
+    min-width: 180px;
+    text-align: right;
+    color: #0f172a;
+}
+
+.evolua-dashboard-highlight span {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--evolua-muted);
+}
+
+.evolua-dashboard-highlight strong {
+    font-size: 1.1rem;
+    margin-top: 4px;
+    display: block;
+}
+
+.evolua-dashboard-metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.evolua-metric-card {
+    background: var(--evolua-surface);
+    border: 1px solid var(--evolua-border);
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: var(--evolua-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.evolua-metric-label {
+    font-size: 0.85rem;
+    color: var(--evolua-muted);
+}
+
+.evolua-metric-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--evolua-text);
+}
+
+.evolua-metric-hint {
+    font-size: 0.8rem;
+    color: var(--evolua-text-muted);
+}
+
+.evolua-dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+}
+
+.evolua-dashboard-chart {
+    min-width: 0;
+}
+
+@media (max-width: 1024px) {
+    .evolua-login-card {
+        grid-template-columns: 1fr;
+    }
+
+    .evolua-login-media {
+        min-height: 36vh;
+        height: 36vh;
+    }
+
+    .evolua-login-panel {
+        padding: 48px 32px;
+    }
+
+    .evolua-topbar-center {
+        display: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .evolua-login-panel {
+        padding: 36px 24px;
+    }
+
+    .evolua-login-title {
+        font-size: 1.6rem;
     }
 }
